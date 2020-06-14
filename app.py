@@ -8,6 +8,6 @@ def Login_Page():
         return render_template('index.html')
     
 @app.route('/create-customer',methods=['GET','POST'])
-def create-customer():
+def createCustomer():
     if request.method == 'POST':
         return render_template('create-customer.html')
