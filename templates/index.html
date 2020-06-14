@@ -55,7 +55,7 @@
 				username.focus(); 
 				return false; 
 			} 
-			if(username.value.length < 10) 
+			if(username.value.length < 8) 
 				{
 					window.alert("The user ID can be alphabetic or alphanumeric and should have a minimum of 8 characters"); 
 					username.focus();
@@ -72,7 +72,7 @@
 			if(password.value.match( 
                     /[A-Z]/g) && password.value.match( 
                     /[0-9]/g) && password.value.match( 
-                    /[^a-zA-Z\d]/g) && password.value.length == 10) 
+                    /[^a-zA-Z\d]/g) && password.value.length >= 10) 
 					{
 						return true;
 					}		
