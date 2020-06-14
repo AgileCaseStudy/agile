@@ -1,6 +1,8 @@
-from flask import Flask,render_template            #Importing packages
+from flask import Flask,render_template,request           
+#Importing packages
 
 app = Flask(__name__)
-@app.route('/')
+@app.route('/', methods=['GET','POST'])
 def Login_Page():
-    return render_template('Login.html')
+    if request.method == 'POST':
+        return render_template('index.html')
