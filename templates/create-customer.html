@@ -2,53 +2,131 @@
 <html>
 <title> Create Customer</title>
 <head>
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='createcustomerstyle.css') }}">
-
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='createcustomerstyle.css') }}">
 </head>
-<body id="b">
-    <div id="register">
-        <div class="container">
-            <div id="register-row" class="row justify-content-center align-items-center">
-                <div id="register-column" class="col-md-6">
-                    <div id="register-box" class="col-md-12">
-                        <form class="form" action="create-customer" method="post">
-                                <h3 class="text-center text-info">Create Customer</h3>
-                                <div class="form-group">
-                                    <label for="id" class="text-info">Customer SSN id</label>
-                                    <input type="text" name="id" value="" class="form-control"  required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="name" class="text-info">Customer Name</label>
-                                    <input type="text" name="name" class="form-control" value="" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="age" class="text-info">Age</label>
-                                    <input type="text" name="age" class="form-control" value="" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="Address" class="text-info">Address</label>
-                                    <input type="text" name="ID" class="form-control" value="" required>
-                                </div>
-                                <div class="form-group" class="text-info row" >
-                                    <input type="submit" name="submit" class="btn btn-info btn-md" value="submit"><span>
-                                    <input type="reset" name="reset" class="btn btn-info btn-md" value="reset"><span>
-                                </div>
-                        </form>
+<body>
+        <div class="navbar">
+                <a href="#home">Home</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Customer Management 
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                      <a href="#">Create Customer</a>
+                      <a href="#">Delete Customer</a>
+                      <a href="#">Update Customer</a>
+                      
+                      
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                </div> 
+                
+                <div class="dropdown">
+                  <button class="dropbtn">Account Management 
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="dropdown-content">
+                    <a href="#">Create Account</a>
+                    <a href="#">Delete Account</a>
+                    
+                  </div>
+                </div> 
 
-	
+                <div class="dropdown">
+                  <button class="dropbtn">Status Details 
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="dropdown-content">
+                    <a href="#">View Customers Status List</a>
+                    <a href="#">View Accounts Status List</a>
+                  </div>
+                </div>
+
+                <a href="#logout">Logout</a>
+                
+              </div>      
+              
+<div id="main-part">
+<h1 style="text-align: center; padding-top: 20px">Create Customer</h1>
+<div id="frm">
+    <div id="frm_in">
+  <form action="/" onsubmit="return validate()" method="POST" name="CreateCustomerForm">
+    <label for="id">Customer SSN id:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+    <input type="text" id="id" name="id">
+
+    <label for="name">Customer Name:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+    <input type="text" id="name" name="name">
+
+    <label for="age">Age:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+    <input type="number" name="age" id="age"><br>
+
+    <label for="address_1">Address Line 1:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+    <input type="text" name="address_1" id="address_1">
+    
+    <label for="address_2">Address Line 2:</label>
+    <input type="text" name="address_2" id="address_2">
+
+    <label for="state">State:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+    <input type="text" name="state" id="state">
+    
+    <label for="city">City:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+    <input type="text" name="city" id="city">
+  <div>
+    <input type="submit" value="Submit"><span>
+    <input style="float: right" type="reset" value="Reset">
+</div>
+</form>
+</div>
+</div>
+</div>
 <!-- Bootstrap jQuery, Popper.js, and our own JavaScript plugins-->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
+<script> 
+		function validate()                                    
+		{ 
+			var id = document.forms["CreateCustomerForm"]["id"];                 
+			var name = document.forms["CreateCustomerForm"]["name"];  
+            var age = document.forms["CreateCustomerForm"]["age"];
+            var address_1 = document.forms["CreateCustomerForm"]["address_1"];
+            var address_2 = document.forms["CreateCustomerForm"]["address_2"];
+            var state = document.forms["CreateCustomerForm"]["state"];
+            var city = document.forms["CreateCustomerForm"]["city"];
+			if (id.value == "")                                  
+			{ 
+				window.alert("Please enter Customer's SSN Id"); 
+				id.focus(); 
+				return false; 
+			} 
+            if (name.value == "")                                  
+			{ 
+				window.alert("Please enter Customer's Name"); 
+				name.focus(); 
+				return false; 
+			} if (age.value == "")                                  
+			{ 
+				window.alert("Please enter Customer's Age"); 
+				age.focus(); 
+				return false; 
+			} if (address_1.value == "")                                  
+			{ 
+				window.alert("Please enter Customer's address"); 
+				address_1.focus(); 
+				return false; 
+			} if (state.value == "")                                  
+			{ 
+				window.alert("Please enter Customer's State"); 
+				state.focus(); 
+				return false; 
+			} if (city.value == "")                                  
+			{ 
+				window.alert("Please enter Customer's City"); 
+				city.focus(); 
+				return false; 
+			} 
+			
+			return true; 
+		}</script> 
 
 </body>
 
