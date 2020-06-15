@@ -50,26 +50,26 @@
 <div id="frm">
     <div id="frm_in">
   <form action="/" onsubmit="return validate()" method="POST" name="CreateCustomerForm">
-    <label for="id">Customer SSN id:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
-    <input type="text" id="id" name="id">
+    <label for="cust_id">Customer SSN id:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+    <input type="text" id="cust_id" name="cust_id">
 
-    <label for="name">Customer Name:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
-    <input type="text" id="name" name="name">
+    <label for="cust_name">Customer Name:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+    <input type="text" id="cust_name" name="cust_name">
 
-    <label for="age">Age:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
-    <input type="number" name="age" id="age"><br>
+    <label for="cust_age">Age:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+    <input type="number" name="cust_age" id="cust_age"><br>
 
-    <label for="address_1">Address Line 1:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
-    <input type="text" name="address_1" id="address_1">
+    <label for="cust_address_1">Address Line 1:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+    <input type="text" name="cust_address_1" id="cust_address_1">
     
-    <label for="address_2">Address Line 2:</label>
-    <input type="text" name="address_2" id="address_2">
+    <label for="cust_address_2">Address Line 2:</label>
+    <input type="text" name="cust_address_2" id="cust_address_2">
 
-    <label for="state">State:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
-    <input type="text" name="state" id="state">
+    <label for="cust_state">State:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+    <input type="text" name="cust_state" id="cust_state">
     
-    <label for="city">City:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
-    <input type="text" name="city" id="city">
+    <label for="cust_city">City:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+    <input type="text" name="cust_city" id="cust_city">
   <div>
     <input type="submit" value="Submit"><span>
     <input style="float: right" type="reset" value="Reset">
@@ -85,43 +85,43 @@
 <script> 
 		function validate()                                    
 		{ 
-			var id = document.forms["CreateCustomerForm"]["id"];                 
-			var name = document.forms["CreateCustomerForm"]["name"];  
-            var age = document.forms["CreateCustomerForm"]["age"];
-            var address_1 = document.forms["CreateCustomerForm"]["address_1"];
-            var address_2 = document.forms["CreateCustomerForm"]["address_2"];
-            var state = document.forms["CreateCustomerForm"]["state"];
-            var city = document.forms["CreateCustomerForm"]["city"];
-			if (id.value == "")                                  
+			var cust_id = document.forms["CreateCustomerForm"]["cust_id"];                 
+			var cust_name = document.forms["CreateCustomerForm"]["cust_name"];  
+            var cust_age = document.forms["CreateCustomerForm"]["cust_age"];
+            var cust_address_1 = document.forms["CreateCustomerForm"]["cust_address_1"];
+            var cust_address_2 = document.forms["CreateCustomerForm"]["cust_address_2"];
+            var cust_state = document.forms["CreateCustomerForm"]["cust_state"];
+            var cust_city = document.forms["CreateCustomerForm"]["cust_city"];
+			if (cust_id.value == "")                                  
 			{ 
 				window.alert("Please enter Customer's SSN Id"); 
-				id.focus(); 
+				cust_id.focus(); 
 				return false; 
 			} 
-            if (name.value == "")                                  
+            if (cust_name.value == "")                                  
 			{ 
 				window.alert("Please enter Customer's Name"); 
-				name.focus(); 
+				cust_name.focus(); 
 				return false; 
-			} if (age.value == "")                                  
+			} if (cust_age.value == "")                                  
 			{ 
 				window.alert("Please enter Customer's Age"); 
-				age.focus(); 
+				cust_age.focus(); 
 				return false; 
-			} if (address_1.value == "")                                  
+			} if (cust_address_1.value == "")                                  
 			{ 
 				window.alert("Please enter Customer's address"); 
-				address_1.focus(); 
+				cust_address_1.focus(); 
 				return false; 
-			} if (state.value == "")                                  
+			} if (cust_state.value == "")                                  
 			{ 
 				window.alert("Please enter Customer's State"); 
-				state.focus(); 
+				cust_state.focus(); 
 				return false; 
-			} if (city.value == "")                                  
+			} if (cust_city.value == "")                                  
 			{ 
 				window.alert("Please enter Customer's City"); 
-				city.focus(); 
+				cust_city.focus(); 
 				return false; 
 			} 
 			
