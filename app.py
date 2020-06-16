@@ -42,6 +42,10 @@ def createCustomer():
     if request.method == 'POST':
         return render_template('create-customer.html')
 
+#deleteCustomer
+@app.route('/delete-customer',methods=['GET','POST'])
+def deleteCustomer():
+    return render_template('delete-customer.html')
 
 #database models
 class Auths(db.Model):
