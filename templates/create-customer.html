@@ -5,6 +5,45 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='createcustomerstyle.css') }}">
 </head>
 <body>
+    <div id="delete_cust_modal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h3>Delete Customer</h3>
+          <form action="/" onsubmit="return delete_search_validate()" method="POST" name="Delete-SearchCustomerForm">
+
+            <label for="d_search_ws_ssn">Customer SSN id:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+            <input type="text" id="d_search_ws_ssn" name="d_search_ws_ssn">
+            OR<br><br>
+            <label for="d_search_ws_id">Customer Id:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+            <input type="text" id="d_search_ws_id" name="d_search_ws_id">
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+      
+      </div>
+
+      <div id="update_cust_modal" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Update Customer</h3>
+            <form action="/" onsubmit="return update_search_validate()" method="POST" name="Update-SearchCustomerForm">
+  
+              <label for="u_search_ws_ssn">Customer SSN id:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+              <input type="text" id="u_search_ws_ssn" name="u_search_ws_ssn">
+              OR<br><br>
+              <label for="u_search_ws_id">Customer Id:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+              <input type="text" id="u_search_ws_id" name="u_search_ws_id">
+              <input type="submit" value="Submit">
+            </form>
+          </div>
+        
+        </div>
+
+
         <div class="navbar">
                 <a href="#home">Home</a>
                 <div class="dropdown">
@@ -13,8 +52,8 @@
                     </button>
                     <div class="dropdown-content">
                       <a href="#">Create Customer</a>
-                      <a href="#">Delete Customer</a>
-                      <a href="#">Update Customer</a>
+                      <a id="delete_cust">Delete Customer</a>
+                      <a id="update_cust">Update Customer</a>
                       
                       
                     </div>
@@ -51,7 +90,7 @@
     <div id="frm_in">
   <form action="/" onsubmit="return validate()" method="POST" name="CreateCustomerForm">
     <label for="ws_ssn">Customer SSN id:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
-    <input type="text" id="ws_ssn" name="ws_ssn">
+    <input type="number" id="ws_ssn" name="ws_ssn">
 
     <label for="ws_name">Customer Name:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
     <input type="text" id="ws_name" name="ws_name">
@@ -98,6 +137,13 @@
 				ws_ssn.focus(); 
 				return false; 
 			} 
+      if(ws_ssn.value.length < 9) 
+				{
+					window.alert("The Customer's SSN ID should have a minimum of 9 digits"); 
+					ws_ssn.focus();
+					return false;
+				}	
+        
             if (ws_name.value == "")                                  
 			{ 
 				window.alert("Please enter Customer's Name"); 
@@ -108,7 +154,20 @@
 				window.alert("Please enter Customer's Age"); 
 				ws_age.focus(); 
 				return false; 
-			} if (ws_adrs_1.value == "")                                  
+			}
+      if(ws_age.value.length > 3) 
+				{
+					window.alert("The Customer's age should have a maximum of 3 digits"); 
+					ws_age.focus();
+					return false;
+				}	
+        if(ws_age.value < 1) 
+				{
+					window.alert("The Customer's age can't be negative or 0"); 
+					ws_age.focus();
+					return false;
+				}	
+       if (ws_adrs_1.value == "")                                  
 			{ 
 				window.alert("Please enter Customer's address"); 
 				ws_adrs_1.focus(); 
@@ -126,8 +185,77 @@
 			} 
 			
 			return true; 
-		}</script> 
+		}
+    function delete_search_validate()                                    
+		{ 
+			var d_search_ws_ssn = document.forms["Delete-SearchCustomerForm"]["d_search_ws_ssn"];                 
+			var d_search_ws_id = document.forms["Delete-SearchCustomerForm"]["d_search_ws_id"];  
+      
+			if (d_search_ws_ssn.value == "" && d_search_ws_id.value == "")                                  
+			{ 
+				window.alert("Please enter Customer's SSN Id or Customer's Id"); 
+				search_ws_ssn.focus(); 
+				return false; 
+			} 
+      return true;
+    }
 
+    function update_search_validate()                                    
+		{ 
+			var u_search_ws_ssn = document.forms["Update-SearchCustomerForm"]["u_search_ws_ssn"];                 
+			var u_search_ws_id = document.forms["Update-SearchCustomerForm"]["u_search_ws_id"];  
+      
+			if (u_search_ws_ssn.value == "" && u_search_ws_id.value == "")                                  
+			{ 
+				window.alert("Please enter Customer's SSN Id or Customer's Id"); 
+				u_search_ws_ssn.focus(); 
+				return false; 
+			} 
+      return true;
+    }
+
+    </script> 
+        <script>
+        // Get the modal
+        var delete_cust_modal = document.getElementById("delete_cust_modal");
+        var update_cust_modal = document.getElementById("update_cust_modal");
+
+        // Get the button that opens the modal
+        var delete_cust = document.getElementById("delete_cust");
+        var update_cust = document.getElementById("update_cust");
+
+        // Get the <span> element that closes the modal
+        var delete_cust_close = document.getElementsByClassName("close")[0];
+        var update_cust_close = document.getElementsByClassName("close")[1];
+
+        // When the user clicks the button, open the modal 
+        delete_cust.onclick = function() {
+          delete_cust_modal.style.display = "block";
+        }
+        update_cust.onclick = function() {
+          update_cust_modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        delete_cust_close.onclick = function() {
+          delete_cust_modal.style.display = "none";
+        }
+        update_cust_close.onclick = function() {
+          update_cust_modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == delete_cust_modal) {
+            delete_cust_modal.style.display = "none";
+          }
+        }
+        window.onclick = function(event) {
+          if (event.target == update_cust_modal) {
+            update_cust_modal.style.display = "none";
+          }
+        }
+      </script>
 </body>
 
 
