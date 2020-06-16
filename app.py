@@ -1,5 +1,5 @@
 #Importing packages
-from flask import Flask,render_template,request
+from flask import Flask,render_template,request,session
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Float
 from datetime import datetime
@@ -61,5 +61,13 @@ class Log(db.Model):
     password=Column(String)
     loginat=Column(String)
 
+
+@app.route('/logout')
+def logout():
+    if 'username' in session:
+        session.pop('username',None)
+        return render_template('logout.html');
+    else:
+        return '<p>user already logged out</p>'
 
 app.run(debug=True)
