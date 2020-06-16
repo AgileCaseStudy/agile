@@ -50,26 +50,26 @@
 <div id="frm">
     <div id="frm_in">
   <form action="/" onsubmit="return validate()" method="POST" name="CreateCustomerForm">
-    <label for="cust_id">Customer SSN id:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
-    <input type="text" id="cust_id" name="cust_id">
+    <label for="ws_ssn">Customer SSN id:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+    <input type="text" id="ws_ssn" name="ws_ssn">
 
-    <label for="cust_name">Customer Name:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
-    <input type="text" id="cust_name" name="cust_name">
+    <label for="ws_name">Customer Name:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+    <input type="text" id="ws_name" name="ws_name">
 
-    <label for="cust_age">Age:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
-    <input type="number" name="cust_age" id="cust_age"><br>
+    <label for="ws_age">Age:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+    <input type="number" name="ws_age" id="ws_age"><br>
 
-    <label for="cust_address_1">Address Line 1:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
-    <input type="text" name="cust_address_1" id="cust_address_1">
+    <label for="ws_adrs_1">Address Line 1:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+    <input type="text" name="ws_adrs_1" id="ws_adrs_1">
     
-    <label for="cust_address_2">Address Line 2:</label>
-    <input type="text" name="cust_address_2" id="cust_address_2">
+    <label for="ws_adrs_2">Address Line 2:</label>
+    <input type="text" name="ws_adrs_2" id="ws_adrs_2">
 
-    <label for="cust_state">State:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
-    <input type="text" name="cust_state" id="cust_state">
+    <label for="ws_state">State:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+    <input type="text" name="ws_state" id="ws_state">
     
-    <label for="cust_city">City:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
-    <input type="text" name="cust_city" id="cust_city">
+    <label for="ws_city">City:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
+    <input type="text" name="ws_city" id="ws_city">
   <div>
     <input type="submit" value="Submit"><span>
     <input style="float: right" type="reset" value="Reset">
@@ -85,43 +85,43 @@
 <script> 
 		function validate()                                    
 		{ 
-			var cust_id = document.forms["CreateCustomerForm"]["cust_id"];                 
-			var cust_name = document.forms["CreateCustomerForm"]["cust_name"];  
-            var cust_age = document.forms["CreateCustomerForm"]["cust_age"];
-            var cust_address_1 = document.forms["CreateCustomerForm"]["cust_address_1"];
-            var cust_address_2 = document.forms["CreateCustomerForm"]["cust_address_2"];
-            var cust_state = document.forms["CreateCustomerForm"]["cust_state"];
-            var cust_city = document.forms["CreateCustomerForm"]["cust_city"];
+			var ws_ssn = document.forms["CreateCustomerForm"]["ws_ssn"];                 
+			var ws_name = document.forms["CreateCustomerForm"]["ws_name"];  
+            var ws_age = document.forms["CreateCustomerForm"]["ws_age"];
+            var ws_adrs_1 = document.forms["CreateCustomerForm"]["ws_adrs_1"];
+            var ws_adrs_2 = document.forms["CreateCustomerForm"]["ws_adrs_2"];
+            var ws_state = document.forms["CreateCustomerForm"]["ws_state"];
+            var ws_city = document.forms["CreateCustomerForm"]["ws_city"];
 			if (cust_id.value == "")                                  
 			{ 
 				window.alert("Please enter Customer's SSN Id"); 
-				cust_id.focus(); 
+				ws_ssn.focus(); 
 				return false; 
 			} 
-            if (cust_name.value == "")                                  
+            if (ws_name.value == "")                                  
 			{ 
 				window.alert("Please enter Customer's Name"); 
-				cust_name.focus(); 
+				ws_name.focus(); 
 				return false; 
-			} if (cust_age.value == "")                                  
+			} if (ws_age.value == "")                                  
 			{ 
 				window.alert("Please enter Customer's Age"); 
-				cust_age.focus(); 
+				ws_age.focus(); 
 				return false; 
-			} if (cust_address_1.value == "")                                  
+			} if (ws_adrs_1.value == "")                                  
 			{ 
 				window.alert("Please enter Customer's address"); 
-				cust_address_1.focus(); 
+				ws_adrs_1.focus(); 
 				return false; 
-			} if (cust_state.value == "")                                  
+			} if (ws_state.value == "")                                  
 			{ 
 				window.alert("Please enter Customer's State"); 
-				cust_state.focus(); 
+				ws_state.focus(); 
 				return false; 
-			} if (cust_city.value == "")                                  
+			} if (ws_city.value == "")                                  
 			{ 
 				window.alert("Please enter Customer's City"); 
-				cust_city.focus(); 
+				ws_city.focus(); 
 				return false; 
 			} 
 			
