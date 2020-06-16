@@ -16,3 +16,7 @@ def Login_Page():
 @app.route('/create-customer',methods=['GET','POST'])
 def createCustomer():
         return render_template('create-customer.html')
+    
+@app.route('/update-customer',methods=['GET','POST'])
+def createCustomer():
+        return render_template('update-customer.html')
