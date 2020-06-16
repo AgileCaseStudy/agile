@@ -36,16 +36,36 @@ def Login_Page():
           
     return render_template('login.html',designation=designation)
 
+
 #createCustomer
 @app.route('/create-customer',methods=['GET','POST'])
 def createCustomer():
-    if request.method == 'POST':
-        return render_template('create-customer.html')
+    errormsg=''
+    if request.method=='POST'
+        CustDetails=request.form
+        ws_ssn=CustDetails['ws_ssn']
+        ws_name=CustDetails['ws_name']
+        ws_age=CustDetails['ws_age']
+        ws_adrs=CustDetails['ws_adrs_1']+" "+CustDetails['ws_adrs_2']+" "+CustDetails['ws_state']+" "+CustDetails['ws_city']
+        testssn=Auths.query.filter_by(ws_ssn=ws_ssn).first()
+        if testssn:
+            errormsg='exists'
+        else:
+            create_cus = CustDetails(ws_ssn=ws_ssn,
+                                     ws_name=ws_name,
+                                     ws_age=ws_age,
+                                     ws_adrs=ws_adrs)
+            db.session.add(create_cus)
+            db.session.commit()
+            errormsg='success'
+    return render_template('create-customer.html',errormsg=errormsg)
+
 
 #deleteCustomer
 @app.route('/delete-customer',methods=['GET','POST'])
 def deleteCustomer():
     return render_template('delete-customer.html')
+
 
 #database models
 class Auths(db.Model):
@@ -61,6 +81,13 @@ class Log(db.Model):
     password=Column(String)
     loginat=Column(String)
 
+class CustDetails(db.Model):
+    __tablename__='custdetails'
+    ws_ssn=Column(Integer, primary_key=True, unique=True)
+    ws_name=Column(String)
+    ws_age=int(Column(Integer))
+    ws_adrs=Column(String)
+
 
 @app.route('/logout')
 def logout():
@@ -70,4 +97,5 @@ def logout():
     else:
         return '<p>user already logged out</p>'
 
+    
 app.run(debug=True)
