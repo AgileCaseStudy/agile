@@ -34,7 +34,7 @@ def Login_Page():
             db.session.add(login_user)
             db.session.commit()
           
-    return render_template('login.html',designation=designation)
+    return render_template('login.html')
 
 
 #createCustomer
