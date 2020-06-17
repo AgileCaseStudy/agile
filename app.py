@@ -36,6 +36,20 @@ def Login_Page():
           
     return render_template('login.html')
 
+#check_user
+@app.route('/check_user', methods=['GET','POST'])
+def check_user():
+    if request.method=='POST':
+        UserDetails=request.form
+        username=UserDetails['username']
+        password=UserDetails['password']
+        testuser=Auths.query.filter_by(username=username, password=password).first()
+        if testuser:
+            designation = int(testuser.usertype)
+            if designation==0:
+                return render_template('create-customer.html')
+            else:
+                return 'You are a cashier/Teller.'
 
 #createCustomer
 @app.route('/create-customer',methods=['GET','POST'])
@@ -91,11 +105,8 @@ class CustDetails(db.Model):
 
 @app.route('/logout')
 def logout():
-    if 'username' in session:
-        session.pop('username',None)
         return render_template('logout.html');
-    else:
-        return '<p>user already logged out</p>'
+    
 
     
 app.run(debug=True)
