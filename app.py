@@ -83,7 +83,6 @@ def createCustomer():
     return render_template('create-customer.html')
 
 
-
 #updatesearchCustomer
 @app.route('/update-search-customer',methods=['GET','POST'])
 def uSearchCustomer():
