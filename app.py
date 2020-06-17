@@ -55,7 +55,7 @@ def check_user():
 @app.route('/create-customer',methods=['GET','POST'])
 def createCustomer():
     errormsg=''
-    if request.method=='POST'
+    if request.method=='POST':
         CustDetails=request.form
         ws_ssn=CustDetails['ws_ssn']
         ws_name=CustDetails['ws_name']
