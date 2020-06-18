@@ -14,7 +14,7 @@
                       <div class="dropdown-content">
                           <a href="/details-search-account">Get Account Details</a>
                           <a href="/withdraw-search-account">Withdraw Amount</a>
-                          <a href="/Transfer-search-account">Transfer Amount</a>
+                          <a href="/deposit-search-account">Deposit Amount</a>
                           <a href="/transfer-search-account">Transfer Amount</a>
                       </div>
                   </div>
@@ -38,23 +38,38 @@
 <div id="frm">
     <div id="frm_in">
   <form action="/create-customer" onsubmit="return validate()" method="POST" name="CreateCustomerForm">
-    <label for="ws_acct_id">Account id:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
-    <input type="number" id="ws_acct_id" name="ws_acct_id" disabled>
+
 
     <label for="ws_cust_id">Customer id:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
     <input type="text" id="ws_cust_id" name="ws_cust_id" disabled>
 
-    <label for="ws_acct_type">Account Type:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
-    <input type="number" name="ws_acct_type" id="ws_acct_type" disabled><br>
+    <div class="dropdown">Source Account Type:
+      <button class="dropbtn">
+        <i class="fa fa-caret-down" span style="color: rgba(255, 0, 0, 0.589)">Select</span></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="#">Saving Account</a>
+        <a href="#">Current Account</a>
 
-    <label for="ws_acct_balance">Balance:<span style="color: rgba(255, 0, 0, 0.589)">*</span></label>
-    <input type="text" name="ws_acct_balance" id="ws_acct_balance" disabled>
+      </div>
+      <br><br><br>
+      <div class="dropdown">Target Account Type:
+        <button class="dropbtn">
+          <i class="fa fa-caret-down" span style="color: rgba(255, 0, 0, 0.589)">Select</span></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Saving Account</a>
+          <a href="#">Current Account</a>
+
+        </div>
+        <br><br><br>
+
 
     <label for="ws_amt">Transfer Amount:</label>
     <input type="text" name="ws_amt" id="ws_amt">
 
   <div>
-    <input type="submit" value="Submit"><span>
+    <input type="submit" value="Transfer"><span>
     <input style="float: right" type="reset" value="Reset">
 </div>
 </form>
@@ -68,10 +83,9 @@
 <script>
 		function validate()
 		{
-			var ws_acct_id = document.forms["CreateCustomerForm"]["ws_acct_id"];
-			var ws_cust_id = document.forms["CreateCustomerForm"]["ws_cust_id"];
-            var ws_acct_type = document.forms["CreateCustomerForm"]["ws_acct_type"];
-            var ws_acct_balance = document.forms["CreateCustomerForm"]["ws_acct_balance"];
+			      var ws_cust_id = document.forms["CreateCustomerForm"]["ws_cust_id"];
+            var ws_src_typ = document.forms["CreateCustomerForm"]["ws_src_typ"];
+            var ws_tgt_typ = document.forms["CreateCustomerForm"]["ws_tgt_typ"];
             var ws_amt = document.forms["CreateCustomerForm"]["ws_amt"];
 
 
