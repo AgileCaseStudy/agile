@@ -5,43 +5,24 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='createcustomerstyle.css') }}">
 </head>
 <body>
-        <div class="navbar">
-                <a href="#home">Home</a>
+       <div class="navbar">
+                <a href="/details-search-account">Home</a>
                 <div class="dropdown">
-                    <button class="dropbtn">Customer Management
-                      <i class="fa fa-caret-down"></i>
+                    <button class="dropbtn">Account Operations
+                    <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content">
-                      <a href="/create-customer">Create Customer</a>
-                      <a href="/delete-search-customer">Delete Customer</a>
-                      <a href="/update-search-customer">Update Customer</a>
+                        <a href="/details-search-account">Get Account Details</a>
+                        <a href="/withdraw-search-account">Withdraw Amount</a>
+                        <a href="/deposit-search-account">Deposit Amount</a>
+                        <a href="/transfer-search-account">Transfer Amount</a>
                     </div>
                 </div>
-
-                <div class="dropdown">
-                  <button class="dropbtn">Account Management
-                    <i class="fa fa-caret-down"></i>
-                  </button>
-                  <div class="dropdown-content">
-                    <a href="#">Create Account</a>
-                    <a href="#">Delete Account</a>
-
-                  </div>
-                </div>
-
-                <div class="dropdown">
-                  <button class="dropbtn">Status Details
-                    <i class="fa fa-caret-down"></i>
-                  </button>
-                  <div class="dropdown-content">
-                    <a href="#">View Customers Status List</a>
-                    <a href="#">View Accounts Status List</a>
-                  </div>
-                </div>
-
+                <a href="/statement-search-account">Statement</a>
                 <a href="/logout">Logout</a>
 
-              </div>
+            </div>
+
 
 <div id="main-part">
 
