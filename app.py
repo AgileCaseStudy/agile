@@ -54,7 +54,7 @@ def check_user():
 
 #createCustomer
 ccustid=100000000
-@app.route('/create-Customer',methods=['GET','POST'])
+@app.route('/create-customer',methods=['GET','POST'])
 def createCustomer():
     msg=''
     if request.method=='POST':
